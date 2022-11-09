@@ -1,9 +1,9 @@
-{ lib, stdenv, callPackage, jre, makeWrapper }:
+{ lib, stdenv, buildMaven, jre, makeWrapper }:
 stdenv.mkDerivation rec {
   name = "kcctl";
   version = "v1.0.0.Alpha5";
 
-  src = callPackage ./source-maven-repo.nix { inherit version; };
+  src = (buildMaven ./project-info.json).repo; # callPackage ./source-maven-repo.nix { inherit version; };
   buildInputs = [ jre ];
   nativeBuildInputs = [ makeWrapper ];
 
