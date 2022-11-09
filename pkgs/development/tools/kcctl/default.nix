@@ -3,9 +3,21 @@ stdenv.mkDerivation rec {
   name = "kcctl";
   version = "v1.0.0.Alpha5";
 
-  src = (buildMaven ./project-info.json).repo; # callPackage ./source-maven-repo.nix { inherit version; };
+  dependencies = (buildMaven ./project-info.json).repo; # callPackage ./source-maven-repo.nix { inherit version; };
+  
+  src = fetchFromGitHub {
+    owner = "kcctl";
+    repo = "kcctl";
+    rev = version;
+    sha256 = "sha256-TsFj0Q9JR0v+ct1KFvAe21jOzF3Vn5z4uorD1wrc9vI=";
+  };
+  
   buildInputs = [ jre ];
   nativeBuildInputs = [ makeWrapper ];
+  
+  buildPhase = ''
+    ./mvnw -B --file pom.xml --offline package "-Dmaven.repo.local=${dependencies}"
+  '';
 
   installPhase = ''
     runHook preInstall
