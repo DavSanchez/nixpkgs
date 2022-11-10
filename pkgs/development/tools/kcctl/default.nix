@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ makeWrapper ];
   
   buildPhase = ''
-    ./mvnw -B --file pom.xml --offline package "-Dmaven.repo.local=${dependencies}"
+    mvn -B --file pom.xml --offline package "-Dmaven.repo.local=${dependencies}"
   '';
 
   installPhase = ''
