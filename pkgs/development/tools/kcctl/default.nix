@@ -1,4 +1,4 @@
-{ lib, stdenv, buildMaven, jre, makeWrapper }:
+{ lib, stdenv, buildMaven, fetchFromGitHub, jre, makeWrapper }:
 stdenv.mkDerivation rec {
   name = "kcctl";
   version = "v1.0.0.Alpha5";
