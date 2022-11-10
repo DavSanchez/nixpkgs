@@ -1,4 +1,4 @@
-{ lib, stdenv, buildMaven, fetchFromGitHub, jre, makeWrapper }:
+{ lib, stdenv, buildMaven, fetchFromGitHub, jre, maven, makeWrapper }:
 stdenv.mkDerivation rec {
   name = "kcctl";
   version = "v1.0.0.Alpha5";
@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-TsFj0Q9JR0v+ct1KFvAe21jOzF3Vn5z4uorD1wrc9vI=";
   };
   
-  buildInputs = [ jre ];
+  buildInputs = [ jre maven ];
   nativeBuildInputs = [ makeWrapper ];
   
   buildPhase = ''
