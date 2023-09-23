@@ -392,7 +392,7 @@ rec {
 
   apple-m1 = {
     gcc = {
-      arch = "armv8.3-a+crypto+sha2+aes+crc+fp16+lse+simd+ras+rdm+rcpc";
+      arch = "armv8.5a+fp-armv8+neon+crc+crypto+dotprod+fp16fml+ras+lse+rdm+rcpc+zcm+zcz+fullfp16+sm4+sha3+sha2+aes";
       cpu = "apple-a13";
     };
   };
