@@ -36,7 +36,7 @@ buildGoModule rec {
     description = "New Relic Infrastructure Agent";
     homepage = "https://github.com/newrelic/infrastructure-agent.git";
     license = licenses.asl20;
-    maintainers = with maintainers; [ DavSanchez ];
+    maintainers = with maintainers; [ davsanchez ];
     mainProgram = "newrelic-infra";
   };
 }
